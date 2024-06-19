@@ -1,0 +1,51 @@
+
+player1 = input('Player1の名前を入力: ')
+player2 = input('Player2の名前を入力: ')
+
+
+count = total = 0
+player = player1
+
+
+while True:
+    print(f'{player}のターン(total:{total + 1})') 
+    input(f'No. {count + 1} (Enter)')            
+    count += 1
+    total += 1
+   
+
+    if count == 30:
+        break
+   
+  
+    if total == 3 and player == player1:
+        player = player2
+        total = 0
+        input('Player Change!!')
+        continue
+    elif total == 3 and player == player2:
+        player = player1
+        total = 0
+        input('Player Change!!')
+        continue
+   
+    while True:
+        answer = input('Playerを変更しますか(y/n): ')
+        if answer == 'y' and player == player1:
+            player = player2
+            total = 0
+            input('Player Change!!')
+            break
+        elif answer == 'y' and player == player2:
+            player = player1
+            total = 0
+            input('Player Change!!')
+            break
+        elif answer == 'n':
+            break
+   
+# 結果出力
+if player == player1:
+    print(f'Winner: {player2}, Losser: {player1}')
+else:
+    print(f'Winner: {player1}, Losser: {player2}')
